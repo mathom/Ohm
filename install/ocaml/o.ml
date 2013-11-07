@@ -187,5 +187,5 @@ let register url args body =
 *)
 let declare url args = 
   let endpoint, define = Action.declare server url args in
-  endpoint, action |- define
+  endpoint, action %> define
 

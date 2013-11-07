@@ -270,8 +270,8 @@ struct
     (* Identify the next task, grab its id, and fetch it. *)
     NextView.doc_query ~startkey:0.0 ~limit:1 () 
     |> Run.bind (Util.first
-		    |- BatOption.map (#id |- lock)
-		    |- BatOption.default (Run.return None))                 
+		    %> BatOption.map (#id %> lock)
+		    %> BatOption.default (Run.return None))                 
 
   (* The prcoessing function itself, grabs a new task, initializes a database context, and 
      performs the task. 
